@@ -36,7 +36,7 @@ class Flypme:
             elif method in ('post', 'delete', 'put'):
                 request_params.update(data=json.dumps(params))
 
-        response = requests.request(**request_params)
+        response = requests.request(**request_params, timeout=60)
 
         if response.ok:
             return response.json()
